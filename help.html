@@ -28,6 +28,47 @@
   </head>
   <body>
     <section class="hero hero-bkg-animated is-medium">
+      <!-- HEAD -->
+      <div class="hero-head">
+        <nav class="navbar">
+          <div class="container">
+            <div class="navbar-brand">
+              
+              <span class="navbar-burger burger" data-target="navbarMenuHeroA">
+                <span></span>
+                <span></span>
+                <span></span>
+              </span>
+            </div>
+            <div id="navbarMenuHeroA" class="navbar-menu">
+              <div class="navbar-end">
+                <!-- <a class="navbar-item is-active">
+                  <i class="fas fa-home"></i>
+                </a> -->
+                <a href="#preq" class="navbar-item">
+                  <!-- <i class="fab fa-gitter" style="margin-right: 7px"></i>  -->
+                  <span>Pre-Requirements</span>
+                </a>
+                <a href="#getstarted" class="navbar-item">
+                  <!-- <i class="fab fa-gitter" style="margin-right: 7px"></i>  -->
+                  <span>Register An Account</span>
+                </a>
+                <a href="#invest" class="navbar-item">
+                  <!-- <i class="fab fa-gitter" style="margin-right: 7px"></i>  -->
+                  <span>Invest in Crowdfund</span>
+                </a>
+                <a href="#reserve" class="navbar-item">
+                  <!-- <i class="fab fa-gitter" style="margin-right: 7px"></i>  -->
+                  <span>Make a Reservation</span>
+                </a>
+
+
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <!-- //HEAD -->
       <div class="hero-body">
         <div class="container">
           <div class="columns">
@@ -36,7 +77,8 @@
                 Getting Started <br> with the Lockbox!
               </h1>
               <h2 class="subtitle is-4">
-                  Let's walkthrough all the steps needed to make your first reservation.
+                  Let's walkthrough all the steps needed to make your first reservation.<br>
+                  <a href="#preq" class="smooth-goto">Pre-Requesites</a> 
               </h2>
             </div>
           </div>
@@ -53,7 +95,7 @@
 
             <!-- CONTENT START -->
 
-            <div class="content">
+            <div id="preq" class="content">
               <h1 class="title">Pre-Requirements</h1>
               <h2 class="subtitle is-5">Download your Blockchain & IoT apps</h2>
 
@@ -107,7 +149,7 @@
 
             <br><br>
             <!-- Getting Started -->
-            <div class="content">
+            <div id="getstarted" class="content">
               <h1 class="title">Getting Started</h1>
               <h2 class="subtitle is-5">Join the first crowdfund!</h2>
 
@@ -151,7 +193,7 @@
                       <span>
                         <a href="#" class="button">
                             <span class="icon">
-                              <i class="fab fa-ethereum"></i>
+                              <i class="fas fa-user-plus"></i>
                             </span>
                             <span>Signup on NestEgg!</span>
                           </a>
@@ -164,6 +206,67 @@
                   </div>
                 </div>
                 <!-- // CARD ELEMENT v2.0 -->
+
+                <!-- CARD ELEMENT v2.0 -->
+                <div id="invest" class="box">
+                  <div class="columns is-vcentered">
+                    <div class="column is-three-fifths"> 
+                      <h1 class="title">Step 3: Invest</h1>
+                      <h2 class="subtitle">Join the first crowdfund</h2>
+                      <p>Head over to "Browse New Eggs" and use your euro-tokens to invest in the project. Check if your Metamask is on the "Rinkeby" testnet.</p>
+                      <br>
+                      <span>
+                        <a href="#" class="button">
+                            <span class="icon">
+                              <i class="fas fa-user-plus"></i>
+                            </span>
+                            <span>Signup on NestEgg!</span>
+                          </a>
+                      </span>             
+                    </div>
+                    <div class="column has-text-centered"> 
+                      <!-- FOR VIDEO IFRAME: USE width="373" height="210" -->
+                      <iframe width="373" height="210" src="https://www.youtube.com/embed/_jGuVDFjFcc?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> 
+                    </div>
+                  </div>
+                </div>
+                <!-- // CARD ELEMENT v2.0 -->
+
+                <br><br>
+                <!-- Make a Reservation -->
+                <div id="reserve" class="content">
+                  <h1 class="title">Make a Reservation</h1>
+                  <h2 class="subtitle is-5">Finally! Time to use the lockbox!</h2>
+
+                  Once the crowdfund is complete, reservation hours are issued as credits every week to the shared owners. You'll be using your dashboard to claim your credits and make reservations with it.
+
+                </div>
+
+                <!-- CARD ELEMENT v2.0 -->
+                <div class="box">
+                  <div class="columns is-vcentered">
+                    <div class="column is-three-fifths"> 
+                      <h1 class="title">Make Reservation</h1>
+                      <!-- <h2 class="subtitle">Join the first crowdfund</h2> -->
+                      <p>After the crowdfund is complete, you'll be able to make reservations using your credits.</p>
+                      <!-- <br>
+                      <span>
+                        <a href="#" class="button">
+                            <span class="icon">
+                              <i class="fas fa-user-plus"></i>
+                            </span>
+                            <span>Signup on NestEgg!</span>
+                          </a>
+                      </span>  -->            
+                    </div>
+                    <div class="column has-text-centered"> 
+                      <!-- FOR VIDEO IFRAME: USE width="373" height="210" -->
+                      <iframe width="373" height="210" src="https://www.youtube.com/embed/_jGuVDFjFcc?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> 
+                    </div>
+                  </div>
+                </div>
+                <!-- // CARD ELEMENT v2.0 -->
+
               
             
 
@@ -217,5 +320,38 @@
       </div>
     </footer>
     <script type="text/javascript" src="assets/lib/main.js"></script>
+    <script type="text/javascript">
+      $('.smooth-goto').on('click', function() {  
+          $('html, body').animate({scrollTop: $(this.hash).offset().top - 50}, 1000);
+          return false;
+      });
+    </script>
+    <script type="text/javascript">
+         document.addEventListener('DOMContentLoaded', function () {
+
+           // Get all "navbar-burger" elements
+           var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+           // Check if there are any navbar burgers
+           if ($navbarBurgers.length > 0) {
+
+             // Add a click event on each of them
+             $navbarBurgers.forEach(function ($el) {
+               $el.addEventListener('click', function () {
+
+                 // Get the target from the "data-target" attribute
+                 var target = $el.dataset.target;
+                 var $target = document.getElementById(target);
+
+                 // Toggle the class on both the "navbar-burger" and the "navbar-menu"
+                 $el.classList.toggle('is-active');
+                 $target.classList.toggle('is-active');
+
+               });
+             });
+           }
+
+         });
+     </script>
   </body>
 </html>
