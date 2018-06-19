@@ -1,176 +1,519 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
+<!--
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Lockbox: Games Available</title>
-    <link rel="stylesheet" href="assets/css/main.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
-    <style type="text/css">
-      .hero-bkg-animated {
-        background: #f8f8f8 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23f000ff' fill-opacity='0.14'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat 0 0;
+	<head>
+		<title>Available Games</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<script src="../assets/js/typed.js" type="text/javascript"></script>
+		<script src="../assets/js/demos.js"></script>
+		<link href="../assets/css/lity.css" rel="stylesheet">
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script src="../assets/js/lity.js"></script>
+		<script>
 
-        box-sizing: border-box;
-        padding-top: 5vh;
-        -webkit-animation: slide 20s linear infinite;
-      }
+    	/* Light YouTube Embeds by @labnol */
+	    /* Web: http://labnol.org/?p=27941 */
 
-      .hero-bkg-animated h1 {
-        font-family: sans-serif;
-      }
+    	document.addEventListener("DOMContentLoaded",
+        	function() {
+            	var div, n,
+                	v = document.getElementsByClassName("youtube-player");
+            	for (n = 0; n < v.length; n++) {
+                	div = document.createElement("div");
+                	div.setAttribute("data-id", v[n].dataset.id);
+                	div.innerHTML = labnolThumb(v[n].dataset.id);
+                	div.onclick = labnolIframe;
+                	v[n].appendChild(div);
+            	}
+        	});
 
-      @-webkit-keyframes slide {
-          from { background-position: 0 0; }
-          to { background-position: -400px 0; }
-      }
+    	function labnolThumb(id) {
+        	var thumb = '<img src="https://i.ytimg.com/vi/ID/hqdefault.jpg">',
+          	  play = '<div class="play"></div>';
+      	  return thumb.replace("ID", id) + play;
+    	}
+
+  	  function labnolIframe() {
+      	  var iframe = document.createElement("iframe");
+      	  var embed = "https://www.youtube.com/embed/ID?rel=0&autoplay=1";
+	        iframe.setAttribute("src", embed.replace("ID", this.dataset.id));
+	        iframe.setAttribute("frameborder", "0");
+      	  iframe.setAttribute("allowfullscreen", "1");
+      	  this.parentNode.replaceChild(iframe, this);
+    	}
+
+		</script>
+		<style>
+    	.youtube-player {
+        	position: relative;
+	        padding-bottom:56.27%;
+      	  /* Use 75% for 4:3 videos */
+	        height: 0;
+	        overflow: hidden;
+	        max-width: 100%;
+	        background: #000;
+	        margin: auto;
+					}
+
+	    .youtube-player iframe {
+	        position: absolute;
+	        top: 0;
+	        left: 0;
+	        width: 100%;
+	        height: 100%;
+	        z-index: 100;
+	        background: transparent;
+	    }
+
+	    .youtube-player img {
+	        bottom: 0;
+	        display: block;
+	        left: 0;
+	        margin: auto;
+	        max-width: 100%;
+	        width: 100%;
+	        position: absolute;
+	        right: 0;
+	        top: 0;
+	        border: none;
+	        height: auto;
+	        cursor: pointer;
+	        -webkit-transition: .4s all;
+	        -moz-transition: .4s all;
+	        transition: .4s all;
+	    }
+
+	    .youtube-player img:hover {
+	        -webkit-filter: brightness(75%);
+	    }
+
+	    .youtube-player .play {
+	        height: 72px;
+	        width: 72px;
+	        left: 50%;
+	        top: 50%;
+	        margin-left: -36px;
+	        margin-top: -36px;
+	        position: absolute;
+	        background: url("../game2.0/assets/images/PlayVid.png") no-repeat;
+	        cursor: pointer;
+	    }
+
+		</style>
+		<style>
+        .pure-g > div {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        .l-box {
+            padding: 1em;
+        }
     </style>
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
-    <link rel="manifest" href="assets/favicon/site.webmanifest">
-    <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
-  </head>
-  <body>
-    <section class="hero hero-bkg-animated is-medium">
-      <!-- HEAD -->
-      <div class="hero-head">
-        <nav class="navbar">
-          <div class="container">
-            <div class="navbar-brand">
-              
-              <span class="navbar-burger burger" data-target="navbarMenuHeroA">
-                <span></span>
-                <span></span>
-                <span></span>
-              </span>
-            </div>
-          </div>
-        </nav>
-      </div>
-      <!-- //HEAD -->
-      <div class="hero-body">
-        <div class="container">
-          <div class="columns">
-            <div class="column is-8-desktop is-offset-2-desktop">
-              <h1 class="title is-2 is-spaced">
-                What games <br> are in the lockbox?
-              </h1>
-              <h2 class="subtitle is-4">
-                  Check out what games are available to play within the VR Arcade!
-              </h2>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <!-- MAIN SECTION -->
+		<link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+		<link rel="manifest" href="../assets/favicon/site.webmanifest">
+		<link rel="mask-icon" href="../assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
+		<meta name="msapplication-TileColor" content="#da532c">
+		<meta name="theme-color" content="#ffffff">
+		<!--[if lte IE 8]>
+  	<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/base-min.css">
+	  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-min.css">
+	  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-old-ie-min.css">
+		<![endif]-->
+		<!--[if gt IE 8]><!-->
+	  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/base-min.css">
+	  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-min.css">
+	  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+		<!--<![endif]-->
+	</head>
+	<body>
 
-    <section class="section" style="background-color: #f8f8f8;">
-      <div class="container">
-        <div class="columns">
-          <div class="column is-10-desktop is-offset-1-desktop">
+		<!-- Wrapper -->
 
-            <!-- CONTENT START -->
+		<div id="wrapper">
 
-            <!-- <div id="preq" class="content">
-              <h1 class="title">Pre-Requirements</h1>
-              <h2 class="subtitle is-5">Download your Blockchain & IoT apps</h2>
+			<!-- Header -->
 
-              You're about to experience the cutting edge combination of blockchain and IoT. (Heads up, there will be bugs!) Before you jump onto the NestEgg platform, be sure to equip yourself with an <strong>ethereum wallet</strong> and the <strong>door-unlocking app, noke</strong>. You'll need both of them to participate and make reservations.
+			<header id="header" class="alt">
+				<span class="logo"><img src="images/logo4.svg" alt="" /></span>
+				<h1>The Lockbox</h1>
+				<h2>
+					<div class="type-wrap">
+						<div id="typed-strings">
+							<span>Play your games, your way!</span>
+							<p>Play Action Games</p>
+							<p>Play Casual Games</p>
+							<p>Play Creative Games</p>
+							<p>Play Puzzle Games</p>
+							<p>Play Simulation Games</p>
+							<p>Play Strategy Games</p>
+						</div>
+						<span id="typed" style="white-space:pre;"></span>
+					</div>
+				</h2>
+			</header>
 
-            </div>   -->          
-            <div class="columns has-text-centered is-vcentered">
-              <iframe class="airtable-embed" src="https://airtable.com/embed/shr60mX0JCaUQPEaR?backgroundColor=green" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
-            </div>
+			<!-- Nav -->
+
+			<nav id="nav">
+				<ul>
+					<li><a href="#intro" class="active icon fa-arrow-up"></a></li>
+					<li><a href="#Action">Action Games</a></li>
+					<li><a href="#Casual">Casual Games</a></li>
+					<li><a href="#Creative">Creative Games</a></li>
+					<li><a href="#Puzzle">Puzzle Games</a></li>
+					<li><a href="#Simulation">Simulation Games</a></li>
+					<li><a href="#Strategy">Strategy Games</a></li>
+				</ul>
+			</nav>
+
+			<!-- Main -->
+
+			<div id="main">
+
+				<!-- Introduction -->
+
+				<section id="intro" class="main" style="padding:10px horizontal-align" >
+					<div class="spotlight">
+						<div class="content">
+							<header class="major">
+								<p><b>On this page you can browse the different categories of games available in the VR Arcade!</b></p>
+							</header>
+						</div>
+					</div>
+				</section>
+
+				<!-- Action Games-->
+
+				<section id="Action" class="main">
+
+						<div class="content">
+							<header class="major">
+									<h2>Action Games</h2>
+							</header>
+							<div class="pure-g">
+								<div class="pure-u-1 pure-u-md-3-5 pure-u-lg-3-5 l-box">
+										<b>The Lab</b><br>
+										Welcome to The Lab, a compilation of experiments to try out! Are you ready to fix a robot, defend a castle, adopt a mechanical dog, destroying the Aperture storage annex using a slingshot or more? Then look no further!
+								</div>
+								<div class="pure-u-1 pure-u-md-2-5 pure-u-lg-2-5 l-box">
+										<div class="youtube-player" data-id="ASVku-48N8Q"></div>
+								</div>
+								<div class="pure-u-1 pure-u-md-3-5 pure-u-lg-3-5 l-box">
+										<b>Project: Rampage VR</b><br>
+										If Rampage and Destruction is what you crave, then look no further! In Rampage VR you can create your own monsters to then completely destroy either Paris or Chicago! This game is meant for those who just can’t seem to get enough destruction done in the real world!<br><br>
+								</div>
+								<div class="pure-u-1 pure-u-md-2-5 pure-u-lg-2-5 l-box">
+										<div class="youtube-player" data-id="jOnqopthPVI"></div>
+									</div>
+									<div class="pure-u-1 pure-u-md-3-5 pure-u-lg-3-5 l-box">
+											<b>Ready Player One: Oasis Beta</b><br>
+											If you’ve seen the movie*, then you know why you should play this game! Immerse yourself in the Oasis and experience a collection of action packed minigames! This game is great for people looking for an adventure of shoot their way to survival!
+											<br><small>*We programmed the game to also accept people who did not watch the movie</small><br>
+									</div>
+									<div class="pure-u-1 pure-u-md-2-5 pure-u-lg-2-5 l-box">
+											<div class="youtube-player" data-id="4I6Lh6LrcpA"></div>
+									</div>
+									<div class="pure-u-1 pure-u-md-3-5 pure-u-lg-3-5 l-box">
+											<b>Space Pirate Trainer</b><br>
+											Plundering and Pillaging, but in the 21st century? Has this always been your aspiration, but have you never had a clue where to start? No more excuses! Space Pirate Trainer is an action shooter, training the skills you need to become a Space Pirate! This game is awesome for people looking for an action-packed experience!<br><br>
+									</div>
+									<div class="pure-u-1 pure-u-md-2-5 pure-u-lg-2-5 l-box">
+											<div class="youtube-player" data-id="xfa9Jqm34b0"></div>
+									</div>
+									<div class="pure-u-1 pure-u-md-3-5 pure-u-lg-3-5 l-box">
+											<b>Superhot VR</b><br>
+											Does fighting like you in the Matrix seem cool to you? Is dodging bullets and throwing Ninja Stars your forté? SuperHot allows you to just that and more! This game is meant for people eager to proof their fighting skills that don’t back down after they get punched in the face*. <br>
+											<br><small>*Face-punching happens purely in VR, you’ll suffer no actual physical harm, unless self inflicted…</small><br>
+									</div>
+									<div class="pure-u-1 pure-u-md-2-5 pure-u-lg-2-5 l-box">
+											<div class="youtube-player" data-id="pzG7Wc6mbwE"></div>
+									</div>
+									<div class="pure-u-1 pure-u-md-3-5 pure-u-lg-3-5 l-box">
+											<b>Wands</b><br>
+											What if I told you that Magic is no longer just for Harry Potter and his friends? With Wands you have magic at the tip of your fingers! Find old relics and power up to beat other duelers. Do you have what it takes to become the most powerful Wizard or Witch in the world? This game is for people who love fantasy and are looking to use some magic to destroy their enemies.<br><br>
+									</div>
+									<div class="pure-u-1 pure-u-md-2-5 pure-u-lg-2-5 l-box">
+											<div class="youtube-player" data-id="kDk9P0oXfKs"></div>
+									</div>
+									<div class="pure-u-1 pure-u-md-3-5 pure-u-lg-3-5 l-box">
+											<b>Fruit Ninja</b><br>
+											Do we even need to say more? It’s Fruit Ninja! The classic game from your phone has made it’s way into the Virtual Reality allowing you to truly honor your eastern roots and SLICE. SOME. FRUIT! Avoiding the bombs in classic mode or setting a new high score in zen, this game is absolutely fun for players looking for some slicing action!<br><br>
+									</div>
+									<div class="pure-u-1 pure-u-md-2-5 pure-u-lg-2-5 l-box">
+											<div class="youtube-player" data-id="H1CRhg2mDTI"></div>
+									</div>
+							</div>
+						</div><br>
+
+				</section>
+
+				<!-- Casual Games -->
+
+				<section id="Casual" class="main">
+
+						<div class="content">
+							<header class="major">
+									<h2>Casual Games</h2>
+							</header>
+							<div class="pure-g">
+								<div class="pure-u-1 pure-u-md-3-5 pure-u-lg-3-5 l-box">
+										<b>Acute Art VR Museum</b><br>
+										In this passive game you can immerse yourself in virtual reality works of art by world’s leading contemporary artists. This can be a great experience for someone wanting to see what VR is, without needing any gaming skill in advance.
+								</div>
+								<div class="pure-u-1 pure-u-md-2-5 pure-u-lg-2-5 l-box">
+										<div class="youtube-player" data-id="SWKX0qpiFFU"></div>
+								</div>
+								<div class="pure-u-1 pure-u-md-3-5 pure-u-lg-3-5 l-box">
+										<b>Allumette</b><br>
+										Allumette is a beautiful story unfolding right in front of your eyes. This passive game enables you to follow the story of a girl grasping for hope after being stuck by loss. This can be a great experience for someone wanting to see what VR is, without needing any gaming skill in advance.
+								</div>
+								<div class="pure-u-1 pure-u-md-2-5 pure-u-lg-2-5 l-box">
+										<div class="youtube-player" data-id="AkzdxgMBDi8"></div>
+									</div>
+									<div class="pure-u-1 pure-u-md-3-5 pure-u-lg-3-5 l-box">
+											<b>Google Earth VR</b><br>
+											If you’re sick at looking at the world on your screen and don’t have the cash or time to visit the world’s landmarks like the Great Wall of China or Lady Liberty, then this app is right what you need. Google VR enables you to float over planet earth and discover the world.
+									</div>
+									<div class="pure-u-1 pure-u-md-2-5 pure-u-lg-2-5 l-box">
+											<div class="youtube-player" data-id="SCrkZOx5Q1M"></div>
+									</div>
+									<div class="pure-u-1 pure-u-md-3-5 pure-u-lg-3-5 l-box">
+											<b>The Night Café</b><br>
+											This passive game enables you to step into the world of Vincent van Gogh. See his work through different angles and experience his art first hand! This can be a great experience for someone wanting to see what VR is, without needing any gaming skill in advance.
+									</div>
+									<div class="pure-u-1 pure-u-md-2-5 pure-u-lg-2-5 l-box">
+											<div class="youtube-player" data-id="-H_Jv54bBEE"></div>
+									</div>
+									<div class="pure-u-1 pure-u-md-3-5 pure-u-lg-3-5 l-box">
+											<b>Reaping Rewards</b><br>
+											As a young Grim Reaper you need to figure out what kind of a Reaper you are going to be. Explore an emotional story that unfolds based on decisions you make! This game is great for people with limited gaming skills that want an immersive experience.
+									</div>
+									<div class="pure-u-1 pure-u-md-2-5 pure-u-lg-2-5 l-box">
+											<div class="youtube-player" data-id="033vEYMqr5Y"></div>
+									</div>
+									<div class="pure-u-1 pure-u-md-3-5 pure-u-lg-3-5 l-box">
+											<b>Rec Room</b><br>
+											Some days you just want to socialize with people and what better way to do it than alone in a VR room! Rec Room allows you to play together online doing activities like Paintball, Co-op quests, Laser Tag, Rec Royale. Dodgeball, and many more activities! This game is perfect for people who don’t like playing alone.
+									</div>
+									<div class="pure-u-1 pure-u-md-2-5 pure-u-lg-2-5 l-box">
+											<div class="youtube-player" data-id="nPb6XoJN9KQ"></div>
+									</div>
+									<div class="pure-u-1 pure-u-md-3-5 pure-u-lg-3-5 l-box">
+											<b>Accounting</b><br>
+											From the makers of hilarious Rick and Morty is  now the VR Accounting programme! Immerse yourself in a crazy world filled with anti-logic and the actual voices from the show! This game is bound to make you laugh!
+									</div>
+									<div class="pure-u-1 pure-u-md-2-5 pure-u-lg-2-5 l-box">
+											<div class="youtube-player" data-id="sFaC-9Q-Fp8"></div>
+									</div>
+							</div>
+						</div><br>
+
+				</section>
+
+				<!--Creative Games-->
+
+				<section id="Creative" class="main">
+
+						<div class="content">
+							<header class="major">
+									<h2>Creative Games</h2>
+							</header>
+							<div class="pure-g">
+								<div class="pure-u-1 pure-u-md-3-5 pure-u-lg-3-5 l-box">
+										<b>Blocks</b><br>
+										Blocks enables anyone to create anything they like in a simple and intuitive manner. An empty world is a boring one, so get out your tools and start creating! This designing game is perfect for the artistic people among us!
+								</div>
+								<div class="pure-u-1 pure-u-md-2-5 pure-u-lg-2-5 l-box">
+										<div class="youtube-player" data-id="12dB1IeJW_I"></div>
+								</div>
+								<div class="pure-u-1 pure-u-md-3-5 pure-u-lg-3-5 l-box">
+										<b>Mindshow</b><br>
+										Mindshow is THE game for people aspiring to direct their own movies. Mindshow enables you to record scenes with different characters by playing them yourselves and recording their voices. Do have what it takes to create the next Hollywood blockbuster!?
+								</div>
+								<div class="pure-u-1 pure-u-md-2-5 pure-u-lg-2-5 l-box">
+										<div class="youtube-player" data-id="UCVwx_vNe8U"></div>
+									</div>
+									<div class="pure-u-1 pure-u-md-3-5 pure-u-lg-3-5 l-box">
+											<b>ModBox</b><br>
+											"Building your own world. Playing levels you designed yourself. Making your wildest fantasies come true*. If the previous statements got you screaming yes, then this is the game for you! This game is great for people looking to create (and destroy!). <br>
+											<br><small>*Sadly so far only in VR..:("</small>
+									</div>
+									<div class="pure-u-1 pure-u-md-2-5 pure-u-lg-2-5 l-box">
+											<div class="youtube-player" data-id="_TPXop3ONPk"></div>
+									</div>
+									<div class="pure-u-1 pure-u-md-3-5 pure-u-lg-3-5 l-box">
+											<b>Tilt Brush</b><br>
+											Is drawing in 2D just no longer doing the trick for you? Try Tilt’s 3D Brush and discover that the world is your canvas! What will you draw? This game is meant for creative people looking for an outlet of just a new way to think about art!
+									</div>
+									<div class="pure-u-1 pure-u-md-2-5 pure-u-lg-2-5 l-box">
+											<div class="youtube-player" data-id="TckqNdrdbgk"></div>
+									</div>
+							</div>
+						</div><br>
+
+				</section>
+
+				<!--Puzzle Games-->
+
+				<section id="Puzzle" class="main">
+
+						<div class="content">
+							<header class="major">
+									<h2>Puzzle Games</h2>
+							</header>
+							<div class="pure-g">
+								<div class="pure-u-1 pure-u-md-3-5 pure-u-lg-3-5 l-box">
+										<b>Belko VR: An Escape Room Experiment</b><br>
+										If you are a fan of Escape Rooms, this is definitely the game for you! The doors lock, the timer starts running and you know you have to get out before that clock hits zero. Escape or die, it’s up to you.. This casual game is an excellent way to test your puzzling skills.
+								</div>
+								<div class="pure-u-1 pure-u-md-2-5 pure-u-lg-2-5 l-box">
+										<div class="youtube-player" data-id="3Os4vEtrITQ"></div>
+								</div>
+								<div class="pure-u-1 pure-u-md-3-5 pure-u-lg-3-5 l-box">
+										<b>Conductor</b><br>
+										You’re on the run from Overcorp in a post industrial apocalypse and the only way to safety is using an old locomotive. Using your tools and wit, clear everything that’s in your way and escape Overcorp. This game is an excellent combination of action and puzzling.
+								</div>
+								<div class="pure-u-1 pure-u-md-2-5 pure-u-lg-2-5 l-box">
+										<div class="youtube-player" data-id="g2-Q3-pQu_s"></div>
+									</div>
+									<div class="pure-u-1 pure-u-md-3-5 pure-u-lg-3-5 l-box">
+											<b>Fantastic Contraptions</b><br>
+											The object of the game is simple: get the pink ball to the pink goal, but to do that, you have to build a Fantastic Contraption. This is the game for creative people looking to puzzle their way to victory!
+									</div>
+									<div class="pure-u-1 pure-u-md-2-5 pure-u-lg-2-5 l-box">
+											<div class="youtube-player" data-id="YCnnJXMi8KE"></div>
+									</div>
+									<div class="pure-u-1 pure-u-md-3-5 pure-u-lg-3-5 l-box">
+											<b>Interkosmos</b><br>
+											You’re in a 1970s Russian space capsule getting ready for descent when there is a system’s failure. Do you have the technical skills it takes to safely return to earth? Or will you crash in a horrible ball of fire before you figure it out? This game if for people who enjoy a dark sense of humor and have the puzzle skills to land safely!
+									</div>
+									<div class="pure-u-1 pure-u-md-2-5 pure-u-lg-2-5 l-box">
+											<div class="youtube-player" data-id="2wtVrEyZWcA"></div>
+									</div>
+							</div>
+						</div><br>
+
+				</section>
+
+				<!--Simulation Games-->
+
+				<section id="Simulation" class="main">
+
+						<div class="content">
+							<header class="major">
+									<h2>Simulation Games</h2>
+							</header>
+							<div class="pure-g">
+								<div class="pure-u-1 pure-u-md-3-5 pure-u-lg-3-5 l-box">
+										<b>Climbey</b><br>
+										This Parkour simulator is for the adrenaline junkies who lack the courage to actually jump from buildings! In this game you can climb your way through various climbing parkours, racing to the finish! This game is perfect for everyone looking for a climbing challenge!									</div>
+								<div class="pure-u-1 pure-u-md-2-5 pure-u-lg-2-5 l-box">
+										<div class="youtube-player" data-id="wVJ40kexsCc"></div>
+									</div>
+								<div class="pure-u-1 pure-u-md-3-5 pure-u-lg-3-5 l-box">
+										<b>The Cubicle</b><br>
+										Sometimes the mundane work that you do can get to you. This VR Experience is just a simulation of a regular day at the job.. Or is it? This game is not for the lighthearted!
+								</div>
+								<div class="pure-u-1 pure-u-md-2-5 pure-u-lg-2-5 l-box">
+										<div class="youtube-player" data-id="iRtOEzSZ7es"></div>
+									</div>
+									<div class="pure-u-1 pure-u-md-3-5 pure-u-lg-3-5 l-box">
+											<b>Job Simulator</b><br>
+											Sick of your job and just want to do something else with your life? Why not come do your job in virtual reality!? In a world where robots have replaced all humans, you can learn how it was ‘to job’! If you’re looking for a laugh then this game is definitely what you’re looking for!
+									</div>
+									<div class="pure-u-1 pure-u-md-2-5 pure-u-lg-2-5 l-box">
+											<div class="youtube-player" data-id="8H9ieJk8AJ4"></div>
+									</div>
+							</div>
+						</div><br>
+
+				</section>
+
+				<!--Strategy Games-->
+
+				<section id="Strategy" class="main">
+
+						<div class="content">
+							<header class="major">
+									<h2>Strategy Games</h2>
+							</header>
+							<div class="pure-g">
+								<div class="pure-u-1 pure-u-md-3-5 pure-u-lg-3-5 l-box">
+										<b>AirMech Command</b><br>
+										In this Action packed Strategy game you are the commander of your own forces. Battle enemies and conquer the map! Want to pull the trigger yourself? Instantly enter your AirMech and pilot it directly. This game is a good way to test your skills.
+									</div>
+								<div class="pure-u-1 pure-u-md-2-5 pure-u-lg-2-5 l-box">
+										<div class="youtube-player" data-id="lhpYR-iBvPU"></div>
+									</div>
+								<div class="pure-u-1 pure-u-md-3-5 pure-u-lg-3-5 l-box">
+										<b>Deisim</b><br>
+										What if you could be a god to your very own world, would you be a kind one and see your people thrive? Or would just just let them think you are until you rip it all away from them again? This game let’s you do either! Ever had that urge to exercise your god-complex? Then this is the game for you!
+									</div>
+								<div class="pure-u-1 pure-u-md-2-5 pure-u-lg-2-5 l-box">
+										<div class="youtube-player" data-id="PO4pbTpvHYU"></div>
+									</div>
+							</div>
+						</div><br>
+
+				</section>
+
+			</div>
 
 
+			<!-- Footer -->
 
-          </div>
-        </div>
-      </div>
-    </section>
-    <footer class="footer hero-bkg-animated has-text-centered">
-      <div class="container">
-         <div class="columns">
-          <div class="column is-8-desktop is-offset-2-desktop">
-                <a href="http://lockbox.nestegg.eu" class="button is-large"> 
-   
-                                    <svg width="24px" height="25px" viewBox="0 0 24 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: text-bottom; margin-bottom: -4px; margin-right: 7px">
-                                        <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
-                                        <desc>Created with Sketch.</desc>
-                                        <defs>
-                                            <linearGradient x1="50%" y1="0%" x2="50%" y2="97.2138074%" id="linearGradient-1">
-                                                <stop stop-color="#7CC3C3" offset="0%"></stop>
-                                                <stop stop-color="#9DCDB3" offset="100%"></stop>
-                                            </linearGradient>
-                                            <linearGradient x1="50%" y1="-158.385439%" x2="50%" y2="100%" id="linearGradient-2">
-                                                <stop stop-color="#8049AE" offset="0%"></stop>
-                                                <stop stop-color="#492376" offset="100%"></stop>
-                                            </linearGradient>
-                                            <linearGradient x1="19.107461%" y1="0%" x2="100%" y2="88.6110467%" id="linearGradient-3">
-                                                <stop stop-color="#F8E71C" offset="0%"></stop>
-                                                <stop stop-color="#F5A623" offset="100%"></stop>
-                                            </linearGradient>
-                                        </defs>
-                                        <g id="A4" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                            <g id="Artboard-2" transform="translate(-319.000000, -246.000000)">
-                                                <g id="Group-Copy" transform="translate(319.000000, 246.000000)">
-                                                    <polygon id="Path-2" stroke="#979797" stroke-width="0.5" fill="url(#linearGradient-1)" points="1.2 6.0933584 1.2 18.1077694 12.15 23.8095238 23.1 18.1077694 23.1 6.0933584 12.15 0.595238095"></polygon>
-                                                    <polygon id="Path-2-Copy" fill="url(#linearGradient-2)" points="0 5.70469799 0 19.1275168 12 25 24 19.1275168 24 5.70469799 12 0"></polygon>
-                                                    <path d="M12,0 L0,5.69694154 L0,19.1088288 L12,25 L24,19.1088288 L24,5.69694154 L12,0 Z M23.2871287,10.8674613 L20.2508251,12.2741315 L20.2508251,10.87998 L15.3927393,13.1252763 L15.3927393,14.5248294 L12.3564356,15.9313725 L12.3564356,11.6815583 L23.2871287,6.61764706 L23.2871287,10.8674613 Z M19.4851485,11.7647059 L19.4851485,13.8620346 L16.1584158,15.4411765 L16.1584158,13.3438478 L19.4851485,11.7647059 Z M0.712871287,6.61764706 L11.6435644,11.6815583 L11.6435644,15.9313725 L0.712871287,10.8674613 L0.712871287,6.61764706 Z M22.5742574,5.84694178 L11.8811881,10.7843137 L1.18811881,5.84694178 L11.8811881,0.735294118 L22.5742574,5.84694178 Z M0.712871287,11.5196078 L11.6435644,16.5428304 L11.6435644,24.0196078 L0.712871287,18.6418071 L0.712871287,11.5196078 Z M12.3564356,24.0196078 L12.3564356,16.542805 L15.3927393,15.1475075 L15.3927393,16.6564586 L20.2508251,14.4292145 L20.2508251,12.9149684 L23.2871287,11.5196078 L23.2871287,18.6417712 L12.3564356,24.0196078 Z" id="Shape-Copy-3" fill="url(#linearGradient-3)" fill-rule="nonzero"></path>
-                                                </g>
-                                            </g>
-                                        </g>
-                                    </svg>
+			<footer id="footer">
+				<section>
+					<h2><img src="../images/nestegg.svg" height="40rm" style="vertical-align: text-bottom;"> This is a <strong>NestEgg</strong> Experiment</h2>
+					<p>NestEgg is hosting <strong>the lockbox</strong> to test if we can automate administration using ethereum. If successful, we're one step closer towards reducing your cost of living by letting you crowdfund innovative infrastructure of the future.</p>
+					<ul class="actions">
+						<li><a href="http://nestegg.eu" class="button">Learn More</a></li>
+					</ul>
+				</section>
+				<section>
+					<h2>Find Us</h2>
+					<dl class="alt">
+						<dt>Address</dt>
+						<dd>Brightlands Smart Services Campus <br>Smedestraat 2 &bull; 6411 CR Heerlen &bull; Netherlands</dd>
+						<!-- <dt>Phone</dt>
+						<dd>(000) 000-0000 x 0000</dd> -->
+						<dt>Email</dt>
+						<dd><a href="#">info@nestegg.eu</a></dd>
+					</dl>
+					<ul class="icons">
+						<li><a href="https://twitter.com/nestegg_eu" class="icon fa-twitter alt"><span class="label">Twitter</span></a></li>
+						<li><a href="https://www.facebook.com/myNestEgg" class="icon fa-facebook alt"><span class="label">Facebook</span></a></li>
+						<li><a href="https://www.https://medium.com/nestegg" class="icon fa-medium alt"><span class="label">Medium</span></a></li>
+						<li><a href="https://github.com/NestEggPensions/RentShare" class="icon fa-github alt"><span class="label">GitHub</span></a></li>
+						<li><a href="https://nl.linkedin.com/company/nestegg-pensions" class="icon fa-linkedin alt"><span class="label">LinkedIn</span></a></li>
+					</ul>
+				</section>
+				<p class="copyright">&copy; NestEgg 2018. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+			</footer>
 
-                                  Return to the Lockbox</a>
-                                  <!-- <a href="https://airtable.com/shrPzz7FFv4IslYfE" target="_blank" class="button is-large"> 🐛 Submit a Bug</a> -->
-                                  <br><br>
-                                  <p class="subtitle is-6">
-                                    Powered by <a href="http://nestegg.eu">NestEgg</a>
-                                  </p>
-              
-          </div>
-        </div>
-      </div>
-    </footer>
-    <script type="text/javascript" src="assets/lib/main.js"></script>
-    <script type="text/javascript">
-      $('.smooth-goto').on('click', function() {  
-          $('html, body').animate({scrollTop: $(this.hash).offset().top - 50}, 1000);
-          return false;
-      });
-    </script>
-    <script type="text/javascript">
-         document.addEventListener('DOMContentLoaded', function () {
+		</div>
+	</body>
 
-           // Get all "navbar-burger" elements
-           var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+	<!-- Scripts -->
+	<script src="../assets/js/jquery.min.js"></script>
+	<script src="../assets/js/jquery.scrollex.min.js"></script>
+	<script src="../assets/js/jquery.scrolly.min.js"></script>
+	<script src="../assets/js/skel.min.js"></script>
+	<script src="../assets/js/util.js"></script>
+	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+	<script src="../assets/js/main.js"></script>
+	<script src="https://embed.small.chat/T7NA7DJ56GAYAQFVS7.js" async></script>
 
-           // Check if there are any navbar burgers
-           if ($navbarBurgers.length > 0) {
-
-             // Add a click event on each of them
-             $navbarBurgers.forEach(function ($el) {
-               $el.addEventListener('click', function () {
-
-                 // Get the target from the "data-target" attribute
-                 var target = $el.dataset.target;
-                 var $target = document.getElementById(target);
-
-                 // Toggle the class on both the "navbar-burger" and the "navbar-menu"
-                 $el.classList.toggle('is-active');
-                 $target.classList.toggle('is-active');
-
-               });
-             });
-           }
-
-         });
-     </script>
-  </body>
 </html>
